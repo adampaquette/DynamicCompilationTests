@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace DynamicCompilationNetStandard2._0
+namespace Core
 {
     public interface ITask
     {

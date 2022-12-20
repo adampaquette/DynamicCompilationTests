@@ -1,9 +1,9 @@
 ﻿using DynamicCompilationNetStandard2._0;
 
 var source = """
-    using DynamicCompilationNetStandard2._0;
     using System.Linq.Expressions;
     using System;
+    using Core;
 
     namespace Consumer
     {

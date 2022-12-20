@@ -1,10 +1,9 @@
 ﻿using Basic.Reference.Assemblies;
+using Core;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 
 namespace DynamicCompilationNetStandard2._0
@@ -41,7 +40,7 @@ namespace DynamicCompilationNetStandard2._0
             //    .Where(x => !x.IsDynamic)
             //    .Select(x => MetadataReference.CreateFromFile(x.Location))
             //    .ToList();
-            //compilation = compilation.AddReferences(domainAssemblies);            
+            //compilation = compilation.AddReferences(domainAssemblies);
 
             using (var ms = new MemoryStream())
             {
