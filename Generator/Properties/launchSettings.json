@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DebugSourceGenerator": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\Consumer\\Consumer.csproj"
+    }
+  }
+}

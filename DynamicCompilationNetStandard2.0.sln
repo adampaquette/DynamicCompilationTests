@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consumer", "Consumer\Consum
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{B2A28295-8EBB-45FD-A951-BFD013ED4CEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{B0038EE7-A805-46BD-BA74-DC35F6DE82AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B2A28295-8EBB-45FD-A951-BFD013ED4CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2A28295-8EBB-45FD-A951-BFD013ED4CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2A28295-8EBB-45FD-A951-BFD013ED4CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0038EE7-A805-46BD-BA74-DC35F6DE82AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0038EE7-A805-46BD-BA74-DC35F6DE82AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0038EE7-A805-46BD-BA74-DC35F6DE82AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0038EE7-A805-46BD-BA74-DC35F6DE82AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
