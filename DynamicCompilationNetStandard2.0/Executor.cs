@@ -20,27 +20,6 @@ namespace DynamicCompilationNetStandard2._0
                 .WithOptions(new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary))
                 .AddSyntaxTrees(syntaxTree);
 
-            ////IMPLEMENTATION ASSEMBLIES
-            //var implementationAssemblies = ((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")).Split(Path.PathSeparator);
-            //var references = implementationAssemblies
-            //    .Select(p => MetadataReference.CreateFromFile(p))
-            //    .ToList();
-            //compilation = compilation.AddReferences(references);
-
-            ////REFERENCE ASSEMBLIES
-            //var netstandardFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".nuget\\packages\\netstandard.library\\2.0.3\\build\\netstandard2.0\\ref");
-            //var referenceAssemblies = Directory.GetFiles(netstandardFolder)
-            //    .Where(x => x.EndsWith(".dll"))
-            //    .Select(p => MetadataReference.CreateFromFile(p))
-            //    .ToList();
-            //compilation = compilation.AddReferences(referenceAssemblies);          
-
-            ////DOMAIN ASSEMBLIES
-            //var domainAssemblies = AppDomain.CurrentDomain.GetAssemblies()
-            //    .Where(x => !x.IsDynamic)
-            //    .Select(x => MetadataReference.CreateFromFile(x.Location))
-            //    .ToList();
-            //compilation = compilation.AddReferences(domainAssemblies);
 
             using (var ms = new MemoryStream())
             {
@@ -61,7 +40,6 @@ namespace DynamicCompilationNetStandard2._0
                 {
                     throw;
                 }
-
 
                 dynamic task = assembly.CreateInstance("Consumer.MyTask");
                 task.Run();
