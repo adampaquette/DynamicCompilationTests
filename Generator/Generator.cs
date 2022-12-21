@@ -31,7 +31,6 @@ public partial class Generator : IIncrementalGenerator
         try
         {
             var source = """
-                using System.Linq.Expressions;
                 using System;
                 using Core;
 
@@ -39,10 +38,6 @@ public partial class Generator : IIncrementalGenerator
                 {
                     public class MyTask : ITask
                     {
-                        public void CanRun<T>(Expression<Func<T, bool>> predicate)
-                        {
-                        }
-
                         public void Run()
                         {
                             Console.WriteLine("Finished");
