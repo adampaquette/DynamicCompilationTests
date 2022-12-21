@@ -17,3 +17,7 @@ var source = """
     """;
 
 Executor.Execute(source);
+
+class SourceGenDummy
+{ 
+}
