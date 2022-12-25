@@ -12,6 +12,7 @@
 
     <ItemGroup>
         <PackageReference Include="Basic.Reference.Assemblies" Version="1.4.1" />
+        <PackageReference Include="Core" Version="1.0.0" />
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.4.0" PrivateAssets="all" />
         <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3">
             <PrivateAssets>all</PrivateAssets>
@@ -25,7 +26,13 @@
         </PackageReference>
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Core\Core.csproj" />
-    </ItemGroup>
+    <!--<PropertyGroup>
+        <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
+    </PropertyGroup>
+
+    <Target Name="GetDependencyTargetPaths">
+        <ItemGroup>
+            <TargetPathWithTargetPlatformMoniker Include="C:\Users\nfs12\source\repos\DynamicCompilationTests\Generator\bin\Debug\netstandard2.0\Core.dll" IncludeRuntimeDependency="false" />
+        </ItemGroup>
+    </Target>-->
 </Project>
