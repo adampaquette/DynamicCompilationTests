@@ -1,17 +1,17 @@
 ﻿using Basic.Reference.Assemblies;
 using Core;
-using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using System;
-using System.IO;
+using Microsoft.CodeAnalysis;
 using System.Reflection;
 
-namespace DynamicCompilationNetStandard2._0
+namespace Generator
 {
     public static class Executor
     {
         public static void Execute(string source)
         {
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+
             var syntaxTree = SyntaxFactory.ParseSyntaxTree(source);
             var compilation = CSharpCompilation.Create(assemblyName: Path.GetRandomFileName())
                 .WithReferenceAssemblies(ReferenceAssemblyKind.NetStandard20)
@@ -19,7 +19,6 @@ namespace DynamicCompilationNetStandard2._0
                     MetadataReference.CreateFromFile(typeof(ITask).Assembly.Location))
                 .WithOptions(new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary))
                 .AddSyntaxTrees(syntaxTree);
-
 
             using (var ms = new MemoryStream())
             {
@@ -45,5 +44,10 @@ namespace DynamicCompilationNetStandard2._0
                 task.Run();
             }
         }
+
+        private static Assembly? CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args) =>
+            args.Name == "Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+                ? AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(x => x.FullName == args.Name)
+                : null;
     }
 }

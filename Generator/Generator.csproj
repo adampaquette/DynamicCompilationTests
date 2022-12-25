@@ -5,8 +5,6 @@
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-        <CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>
         <IsRoslynComponent>true</IsRoslynComponent>
         <PreserveCompilationContext>true</PreserveCompilationContext>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -28,7 +26,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Core\Core.csproj" />
-      <ProjectReference Include="..\DynamicCompilationNetStandard2.0\DynamicCompilationNetStandard2.0.csproj" />
+      <ProjectReference Include="..\Core\Core.csproj" OutputItemType="Analyzer" />
     </ItemGroup>
 </Project>

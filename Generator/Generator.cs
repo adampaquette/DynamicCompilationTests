@@ -1,7 +1,6 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis;
 using System.Collections.Immutable;
-using DynamicCompilationNetStandard2._0;
 
 namespace Generator;
 
@@ -30,23 +29,7 @@ public partial class Generator : IIncrementalGenerator
 
         try
         {
-            var source = """
-                using System;
-                using Core;
-
-                namespace Consumer
-                {
-                    public class MyTask : ITask
-                    {
-                        public void Run()
-                        {
-                            Console.WriteLine("Finished");
-                        }
-                    }
-                }
-                """;
-
-            Executor.Execute(source);
+            Executor.Execute(compilation.SyntaxTrees.First().ToString());
         }
         catch (Exception ex)
         {
