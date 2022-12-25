@@ -30,8 +30,7 @@ namespace Generator
 
                 ms.Seek(0, SeekOrigin.Begin);
                 var assembly = Assembly.Load(ms.ToArray());
-                var types = assembly.GetTypes(); //TEST DEPENDENCY LOADING
-
+                
                 dynamic task = assembly.CreateInstance("Consumer.MyTask");
                 task.Run();
             }
