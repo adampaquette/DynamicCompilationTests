@@ -1,0 +1,1 @@
+# C# Source generator test
