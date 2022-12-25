@@ -26,6 +26,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Core\Core.csproj" OutputItemType="Analyzer" />
+      <ProjectReference Include="..\Core\Core.csproj" />
     </ItemGroup>
 </Project>
