@@ -27,13 +27,6 @@ public partial class Generator : IIncrementalGenerator
             return;
         }
 
-        try
-        {
-            Executor.Execute(compilation.SyntaxTrees.First().ToString());
-        }
-        catch (Exception ex)
-        {
-            throw;
-        }
+        Executor.Execute(compilation.SyntaxTrees.First().ToString());
     }
 }
