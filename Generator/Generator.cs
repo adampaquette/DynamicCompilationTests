@@ -1,6 +1,8 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis;
 using System.Collections.Immutable;
+using Microsoft.CodeAnalysis.Text;
+using System.Text;
 
 namespace Generator;
 
@@ -28,5 +30,19 @@ public partial class Generator : IIncrementalGenerator
         }
 
         Executor.Execute(compilation.SyntaxTrees.First().ToString());
+
+        var source = """
+            using System;
+            using Core;
+
+            namespace Test
+            {
+                public class ValueObject
+                {
+                }
+            }
+            """;
+
+        context.AddSource($"Generator.g.cs", SourceText.From(source, Encoding.UTF8));
     }
 }
