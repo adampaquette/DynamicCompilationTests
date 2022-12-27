@@ -8,7 +8,7 @@ namespace Generator
 {
     public static class Executor
     {
-        public static void Execute(string source)
+        public static string Execute(string source)
         {
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
 
@@ -32,7 +32,7 @@ namespace Generator
                 var assembly = Assembly.Load(ms.ToArray());
                 
                 dynamic task = assembly.CreateInstance("Consumer.MyTask");
-                task.Run();
+                return task.Run();
             }
         }
 

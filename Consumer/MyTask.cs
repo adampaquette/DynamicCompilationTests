@@ -5,9 +5,6 @@ namespace Consumer
 {
     public class MyTask : ITask
     {
-        public void Run()
-        {
-            Console.WriteLine("Finished");
-        }
+        public string Run() => "//Finished";
     }
 }

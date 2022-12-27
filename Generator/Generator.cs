@@ -27,21 +27,22 @@ public partial class Generator : IIncrementalGenerator
         if (classes.IsDefaultOrEmpty)
         {
             return;
-        }
-
-        //Executor.Execute(compilation.SyntaxTrees.First().ToString());
+        }        
 
         var source = """
             using System;
 
             namespace Test
             {
-                public class ValueObject
+                public class MyClass
                 {
                 }
             }
             """;
 
-        context.AddSource($"Generator.g.cs", SourceText.From(source, Encoding.UTF8));
+        context.AddSource($"MyClass.g.cs", SourceText.From(source, Encoding.UTF8));
+        
+        var dynamicCode = Executor.Execute(compilation.SyntaxTrees.First().ToString());
+        context.AddSource($"DynamicClass.g.cs", SourceText.From(dynamicCode, Encoding.UTF8));
     }
 }
