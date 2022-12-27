@@ -9,6 +9,9 @@
         <PreserveCompilationContext>true</PreserveCompilationContext>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+        <CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>
     </PropertyGroup>
 
     <ItemGroup>
@@ -30,7 +33,7 @@
         <PackageReference Include="Basic.Reference.Assemblies" Version="1.4.1" GeneratePathProperty="true" PrivateAssets="all" />
         <PackageReference Include="Core" Version="1.0.0" GeneratePathProperty="true" PrivateAssets="all" />
     </ItemGroup>
-    
+
     <PropertyGroup>
         <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
     </PropertyGroup>
@@ -39,6 +42,10 @@
         <ItemGroup>
             <TargetPathWithTargetPlatformMoniker Include="$(PKGCore)\lib\netstandard2.0\Core.dll" IncludeRuntimeDependency="false" />
             <TargetPathWithTargetPlatformMoniker Include="$(PKGBasic_Reference_Assemblies)\lib\netstandard2.0\Basic.Reference.Assemblies.dll" IncludeRuntimeDependency="false" />
+            <!-- Pack both our DLL and the dependencies into a generated Nuget Package -->
+            <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+            <None Include="$(PKGCore)\lib\netstandard2.0\Core.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+            <None Include="$(PKGBasic_Reference_Assemblies)\lib\netstandard2.0\Basic.Reference.Assemblies.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
         </ItemGroup>
     </Target>
 </Project>

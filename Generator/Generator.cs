@@ -29,11 +29,10 @@ public partial class Generator : IIncrementalGenerator
             return;
         }
 
-        Executor.Execute(compilation.SyntaxTrees.First().ToString());
+        //Executor.Execute(compilation.SyntaxTrees.First().ToString());
 
         var source = """
             using System;
-            using Core;
 
             namespace Test
             {
